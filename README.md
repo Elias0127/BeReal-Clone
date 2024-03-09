@@ -30,7 +30,8 @@ The following **additional** features are implemented:
 - [ ] List anything else that you can get done to improve the app functionality!
 
 ## Video Walkthrough
-![Image Description](https://github.com/Elias0127/BeReal-Clone/blob/assets/86494198/925c3856-be8e-4547-b258-f938214af7cd)
+![Image Description](https://github-production-user-asset-6210df.s3.amazonaws.com/86494198/311419232-925c3856-be8e-4547-b258-f938214af7cd.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20240309%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240309T080345Z&X-Amz-Expires=300&X-Amz-Signature=f4b647fb299595bb193faeb4407d897b175c35d9aaeef5f01d338e4694c9180f&X-Amz-SignedHeaders=host&actor_id=86494198&key_id=0&repo_id=769470287(
+
 
 
 ## Notes
