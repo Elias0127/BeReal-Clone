@@ -6,19 +6,37 @@
 //
 
 import SwiftUI
+import Parse
 
 struct ContentView: View {
+    @State private var isLoggedIn = PFUser.current() != nil
+    @State private var isPresentingNewPostView = false
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationView {
+            if isLoggedIn {
+                VStack {
+                    Text("Welcome, \(PFUser.current()?.username ?? "User")!")
+                    Button("Create New Post") {
+                        isPresentingNewPostView = true
+                    }
+                    .padding()
+                }
+                .sheet(isPresented: $isPresentingNewPostView) {
+                    NewPostView(isLoggedIn: $isLoggedIn)
+                }
+            } else {
+                LoginView(isLoggedIn: $isLoggedIn)
+            }
+            onAppear {
+                isLoggedIn = PFUser.current() != nil
+            }
         }
-        .padding()
     }
-}
-
-#Preview {
-    ContentView()
+    
+    struct ContentView_Previews: PreviewProvider {
+        static var previews: some View {
+            ContentView()
+        }
+    }
 }

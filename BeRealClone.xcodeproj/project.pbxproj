@@ -7,18 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		60CB0520AB4810D32B4AC9A5 /* Pods_BeRealClone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE392170FCCE3C2EBE946032 /* Pods_BeRealClone.framework */; };
 		819C559C2B9BB97100BD7DA2 /* BeRealCloneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819C559B2B9BB97100BD7DA2 /* BeRealCloneApp.swift */; };
 		819C559E2B9BB97100BD7DA2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819C559D2B9BB97100BD7DA2 /* ContentView.swift */; };
 		819C55A02B9BB97300BD7DA2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 819C559F2B9BB97300BD7DA2 /* Assets.xcassets */; };
 		819C55A32B9BB97300BD7DA2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 819C55A22B9BB97300BD7DA2 /* Preview Assets.xcassets */; };
+		819C55AA2B9BC34700BD7DA2 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819C55A92B9BC34700BD7DA2 /* LoginView.swift */; };
+		819C55AC2B9BC3DB00BD7DA2 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819C55AB2B9BC3DB00BD7DA2 /* SignUpView.swift */; };
+		81BE32B72B9C018E002541C7 /* NewPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BE32B62B9C018E002541C7 /* NewPostView.swift */; };
+		81BE32B92B9C01E5002541C7 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BE32B82B9C01E5002541C7 /* ImagePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		462C4D2AAE89C29A5A8DEFD0 /* Pods-BeRealClone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeRealClone.release.xcconfig"; path = "Target Support Files/Pods-BeRealClone/Pods-BeRealClone.release.xcconfig"; sourceTree = "<group>"; };
+		6F827A1CFC277C7EBC4EF5B1 /* Pods-BeRealClone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeRealClone.debug.xcconfig"; path = "Target Support Files/Pods-BeRealClone/Pods-BeRealClone.debug.xcconfig"; sourceTree = "<group>"; };
 		819C55982B9BB97100BD7DA2 /* BeRealClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeRealClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		819C559B2B9BB97100BD7DA2 /* BeRealCloneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeRealCloneApp.swift; sourceTree = "<group>"; };
 		819C559D2B9BB97100BD7DA2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		819C559F2B9BB97300BD7DA2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		819C55A22B9BB97300BD7DA2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		819C55A92B9BC34700BD7DA2 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		819C55AB2B9BC3DB00BD7DA2 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		81BE32B62B9C018E002541C7 /* NewPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostView.swift; sourceTree = "<group>"; };
+		81BE32B82B9C01E5002541C7 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		DE392170FCCE3C2EBE946032 /* Pods_BeRealClone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeRealClone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,17 +38,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60CB0520AB4810D32B4AC9A5 /* Pods_BeRealClone.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A34CA092EF28DBB54FAEA90 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6F827A1CFC277C7EBC4EF5B1 /* Pods-BeRealClone.debug.xcconfig */,
+				462C4D2AAE89C29A5A8DEFD0 /* Pods-BeRealClone.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		819C558F2B9BB97100BD7DA2 = {
 			isa = PBXGroup;
 			children = (
 				819C559A2B9BB97100BD7DA2 /* BeRealClone */,
 				819C55992B9BB97100BD7DA2 /* Products */,
+				1A34CA092EF28DBB54FAEA90 /* Pods */,
+				A429B670892F973A86BA9FE3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -52,6 +76,10 @@
 			isa = PBXGroup;
 			children = (
 				819C559B2B9BB97100BD7DA2 /* BeRealCloneApp.swift */,
+				819C55A92B9BC34700BD7DA2 /* LoginView.swift */,
+				81BE32B62B9C018E002541C7 /* NewPostView.swift */,
+				81BE32B82B9C01E5002541C7 /* ImagePicker.swift */,
+				819C55AB2B9BC3DB00BD7DA2 /* SignUpView.swift */,
 				819C559D2B9BB97100BD7DA2 /* ContentView.swift */,
 				819C559F2B9BB97300BD7DA2 /* Assets.xcassets */,
 				819C55A12B9BB97300BD7DA2 /* Preview Content */,
@@ -67,6 +95,14 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		A429B670892F973A86BA9FE3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DE392170FCCE3C2EBE946032 /* Pods_BeRealClone.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +110,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 819C55A62B9BB97300BD7DA2 /* Build configuration list for PBXNativeTarget "BeRealClone" */;
 			buildPhases = (
+				412623E9A8EAB93181F0E1F0 /* [CP] Check Pods Manifest.lock */,
 				819C55942B9BB97100BD7DA2 /* Sources */,
 				819C55952B9BB97100BD7DA2 /* Frameworks */,
 				819C55962B9BB97100BD7DA2 /* Resources */,
+				EB86C2D6F91D0A5F306C94DB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,13 +170,59 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		412623E9A8EAB93181F0E1F0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BeRealClone-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EB86C2D6F91D0A5F306C94DB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BeRealClone/Pods-BeRealClone-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BeRealClone/Pods-BeRealClone-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BeRealClone/Pods-BeRealClone-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		819C55942B9BB97100BD7DA2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				819C55AC2B9BC3DB00BD7DA2 /* SignUpView.swift in Sources */,
+				819C55AA2B9BC34700BD7DA2 /* LoginView.swift in Sources */,
 				819C559E2B9BB97100BD7DA2 /* ContentView.swift in Sources */,
+				81BE32B92B9C01E5002541C7 /* ImagePicker.swift in Sources */,
 				819C559C2B9BB97100BD7DA2 /* BeRealCloneApp.swift in Sources */,
+				81BE32B72B9C018E002541C7 /* NewPostView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,6 +350,7 @@
 		};
 		819C55A72B9BB97300BD7DA2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6F827A1CFC277C7EBC4EF5B1 /* Pods-BeRealClone.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -274,12 +359,14 @@
 				DEVELOPMENT_ASSET_PATHS = "\"BeRealClone/Preview Content\"";
 				DEVELOPMENT_TEAM = 7QB7LDWNJC;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -295,6 +382,7 @@
 		};
 		819C55A82B9BB97300BD7DA2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 462C4D2AAE89C29A5A8DEFD0 /* Pods-BeRealClone.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -303,12 +391,14 @@
 				DEVELOPMENT_ASSET_PATHS = "\"BeRealClone/Preview Content\"";
 				DEVELOPMENT_TEAM = 7QB7LDWNJC;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
