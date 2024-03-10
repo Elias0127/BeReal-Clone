@@ -62,7 +62,7 @@ struct NewPostView: View {
             }
             .padding()
             .background(Color.black)
-
+            
             // Post a Photo Button
             Button(action: {
                 showingUploadPostView = true // Present the UploadPostView
@@ -76,25 +76,30 @@ struct NewPostView: View {
             }
             .padding()
             .background(Color.black)
-
+            
             // List of posts
             List(posts) { post in
                 PostView(post: post)
                     .listRowBackground(Color.black)
             }
-            .onAppear {
+            .refreshable {
+                fetchPosts()
+            }
+            .task {
                 fetchPosts()
             }
             .background(Color.black)
+
+            
+            .background(Color.black.edgesIgnoringSafeArea(.all))
+            .sheet(isPresented: $showingUploadPostView) {
+                UploadPostView(isPresented: $showingUploadPostView, didCompleteUpload: {
+                    self.fetchPosts() // This will refresh the posts list
+                })
+            }
         }
-        .background(Color.black.edgesIgnoringSafeArea(.all))
-        .sheet(isPresented: $showingUploadPostView) {
-            UploadPostView(isPresented: $showingUploadPostView, didCompleteUpload: {
-                self.fetchPosts() // This will refresh the posts list
-            })
-        }
+        
     }
-    
     func fetchPosts() {
         let query = PFQuery(className: "Post")
         query.includeKey("author")
