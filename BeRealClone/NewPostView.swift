@@ -9,10 +9,12 @@ import SwiftUI
 import Parse
 
 struct Post: Identifiable {
-    var id: String  
+    var id: String
     var image: UIImage?
     var caption: String
     var author: String
+    var location: String?
+    var timestamp: Date?
     
 }
 
@@ -33,6 +35,17 @@ struct PostView: View {
             Text("Posted by \(post.author)")
                 .font(.caption)
                 .foregroundColor(.secondary)
+            if let location = post.location {
+                Text(location)
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+            }
+            
+            if let timestamp = post.timestamp {
+                Text(timestamp, style: .date) // Format the date as needed
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+            }
         }
         .padding()
 
@@ -104,23 +117,27 @@ struct NewPostView: View {
         let query = PFQuery(className: "Post")
         query.includeKey("author")
         query.order(byDescending: "createdAt")
-        
+
         query.findObjectsInBackground { (objects, error) in
             if let error = error {
                 print("Error fetching posts: \(error.localizedDescription)")
             } else if let objects = objects {
                 var fetchedPosts: [Post] = []
-                
+
                 for object in objects {
-                    if let author = object["author"] as? PFUser, let file = object["image"] as? PFFileObject, let caption = object["caption"] as? String {
+                    if let author = object["author"] as? PFUser,
+                       let file = object["image"] as? PFFileObject,
+                       let caption = object["caption"] as? String {
                         let postId = object.objectId ?? "unknown"
                         let authorName = author.username ?? "Anonymous"
-                        
+                        let location = object["location"] as? String // Retrieve location
+                        let timestamp = object.createdAt // Retrieve timestamp (Date)
+
                         file.getDataInBackground { (data, error) in
                             if let data = data, let image = UIImage(data: data) {
-                                let post = Post(id: postId, image: image, caption: caption, author: authorName)
+                                let post = Post(id: postId, image: image, caption: caption, author: authorName, location: location, timestamp: timestamp)
                                 fetchedPosts.append(post)
-                                
+
                                 // Update the posts array on the main thread
                                 DispatchQueue.main.async {
                                     self.posts = fetchedPosts
@@ -134,6 +151,7 @@ struct NewPostView: View {
             }
         }
     }
+
     
     
     
