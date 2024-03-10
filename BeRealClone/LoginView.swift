@@ -13,6 +13,7 @@ struct LoginView: View {
     @Binding var isLoggedIn: Bool
     @State private var username: String = ""
     @State private var password: String = ""
+    @State private var showingSignUp = false
 
     var body: some View {
         ZStack {
@@ -56,9 +57,6 @@ struct LoginView: View {
                     .padding(.horizontal)
                     .frame(width: 330)
                 
-//                Spacer()
-                    .padding(.bottom, 20)
-                
                 Button("Login") {
                     login()
                 }
@@ -70,9 +68,9 @@ struct LoginView: View {
                 .cornerRadius(10)
                 .padding(.horizontal)
                 .frame(width: 330)
-
+                
                 Button("Signup") {
-                    // Trigger sign up action
+                    showingSignUp = true
                 }
                 .font(.headline)
                 .foregroundColor(.white)
@@ -82,20 +80,23 @@ struct LoginView: View {
                 .cornerRadius(10)
                 .padding(.horizontal)
                 .frame(width: 330)
-            }
-        }
-    }
-    
-    func login() {
-            PFUser.logInWithUsername(inBackground: username, password: password) { (user, error) in
-                if let error = error {
-                    print("Error logging in: \(error.localizedDescription)")
-                } else {
-                    print("Successfully logged in user: \(user?.username ?? "")")
-                    DispatchQueue.main.async {
-                        self.isLoggedIn = true
-                    }
+                .sheet(isPresented: $showingSignUp) {
+                    SignUpView()
                 }
             }
         }
+    }
+
+    func login() {
+        PFUser.logInWithUsername(inBackground: username, password: password) { (user, error) in
+            if let error = error {
+                print("Error logging in: \(error.localizedDescription)")
+            } else {
+                print("Successfully logged in user: \(user?.username ?? "")")
+                DispatchQueue.main.async {
+                    self.isLoggedIn = true
+                }
+            }
+        }
+    }
 }

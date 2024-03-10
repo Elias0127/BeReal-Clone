@@ -14,22 +14,61 @@ struct SignUpView: View {
     @State private var password: String = ""
     
     var body: some View {
-        VStack {
-            TextField("Username", text: $username)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
+        ZStack {
+            VStack {
+                Text("BeReal.")
+                    .font(.largeTitle)
+                    .foregroundColor(.white)
+                    .padding()
+                
+                TextField("Username", text: $username)
+                    .foregroundColor(.white)
+                    .textFieldStyle(PlainTextFieldStyle())
+                    .padding()
+                    .background(
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(Color.txtC.opacity(3.5))
+                            .frame(maxWidth: .infinity, minHeight: 44)
+                    )
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color.white, lineWidth: 1)
+                    )
+                    .padding(.horizontal)
+                    .frame(width: 330)
+                
+                SecureField("Password", text: $password)
+                    .foregroundColor(.white)
+                    .textFieldStyle(PlainTextFieldStyle())
+                    .padding()
+                    .background(
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(Color.txtC.opacity(3.5))
+                            .frame(maxWidth: .infinity, minHeight: 44)
+                    )
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color.white, lineWidth: 1)
+                    )
+                    .padding(.horizontal)
+                    .frame(width: 330)
+                
+                Button("Sign Up") {
+                    self.signUp()
+                }
+                .font(.headline)
+                .foregroundColor(.white)
                 .padding()
-            SecureField("Password", text: $password)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding()
-            Button("Sign Up") {
-                self.signUp()
+                .frame(maxWidth: .infinity)
+                .background(Color.btn1)
+                .cornerRadius(10)
+                .padding(.horizontal)
+                .frame(width: 330)
             }
-            .padding()
         }
     }
     
     func signUp() {
-        print("Sign Up button pressed") // This should appear in the console when the button is pressed
         let newUser = PFUser()
         newUser.username = username
         newUser.password = password
@@ -38,12 +77,10 @@ struct SignUpView: View {
             DispatchQueue.main.async {
                 if success {
                     print("User registered successfully")
-                    // Proceed to the main part of the app
                 } else {
                     print("Error: \(error?.localizedDescription ?? "Unknown error")")
                 }
             }
         }
     }
-
 }

@@ -16,6 +16,7 @@
 		819C55AC2B9BC3DB00BD7DA2 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819C55AB2B9BC3DB00BD7DA2 /* SignUpView.swift */; };
 		81BE32B72B9C018E002541C7 /* NewPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BE32B62B9C018E002541C7 /* NewPostView.swift */; };
 		81BE32B92B9C01E5002541C7 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BE32B82B9C01E5002541C7 /* ImagePicker.swift */; };
+		81BE32BF2B9CF6C8002541C7 /* UploadPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BE32BE2B9CF6C8002541C7 /* UploadPostView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		819C55AB2B9BC3DB00BD7DA2 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		81BE32B62B9C018E002541C7 /* NewPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostView.swift; sourceTree = "<group>"; };
 		81BE32B82B9C01E5002541C7 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		81BE32BE2B9CF6C8002541C7 /* UploadPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPostView.swift; sourceTree = "<group>"; };
 		DE392170FCCE3C2EBE946032 /* Pods_BeRealClone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeRealClone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -78,6 +80,7 @@
 				819C559B2B9BB97100BD7DA2 /* BeRealCloneApp.swift */,
 				819C55A92B9BC34700BD7DA2 /* LoginView.swift */,
 				81BE32B62B9C018E002541C7 /* NewPostView.swift */,
+				81BE32BE2B9CF6C8002541C7 /* UploadPostView.swift */,
 				81BE32B82B9C01E5002541C7 /* ImagePicker.swift */,
 				819C55AB2B9BC3DB00BD7DA2 /* SignUpView.swift */,
 				819C559D2B9BB97100BD7DA2 /* ContentView.swift */,
@@ -219,6 +222,7 @@
 			files = (
 				819C55AC2B9BC3DB00BD7DA2 /* SignUpView.swift in Sources */,
 				819C55AA2B9BC34700BD7DA2 /* LoginView.swift in Sources */,
+				81BE32BF2B9CF6C8002541C7 /* UploadPostView.swift in Sources */,
 				819C559E2B9BB97100BD7DA2 /* ContentView.swift in Sources */,
 				81BE32B92B9C01E5002541C7 /* ImagePicker.swift in Sources */,
 				819C559C2B9BB97100BD7DA2 /* BeRealCloneApp.swift in Sources */,

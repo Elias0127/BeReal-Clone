@@ -9,7 +9,7 @@ import SwiftUI
 import Parse
 
 struct Post: Identifiable {
-    var id: String  // Parse object ID
+    var id: String  
     var image: UIImage?
     var caption: String
     var author: String
@@ -41,62 +41,59 @@ struct PostView: View {
 
 
 struct NewPostView: View {
-    @State private var selectedImage: UIImage?
-    @State private var showingImagePicker = false
-    @State private var caption: String = ""
     @State private var posts: [Post] = []
     @State private var isUploading = false
     @Binding var isLoggedIn: Bool
-    
-    
-    
+    @State private var showingUploadPostView = false
+
     var body: some View {
-            VStack {
-                // Header
-                HStack {
-                    Spacer()
-                    Text("BeReal.")
-                        .font(.largeTitle)
-                        .foregroundColor(.white)
-                    Spacer()
-                    Button(action: logout) {
-                        Text("Logout")
-                            .foregroundColor(.blue)
-                    }
+        VStack {
+            // Header
+            HStack {
+                Spacer()
+                Text("BeReal.")
+                    .font(.largeTitle)
+                    .foregroundColor(.white)
+                Spacer()
+                Button(action: logout) {
+                    Text("Logout")
+                        .foregroundColor(.blue)
                 }
-                .padding()
-                .background(Color.black) // Set the header background to black
-
-                // Post a Photo Button
-                Button(action: {
-                    // Present image picker
-                    showingImagePicker = true
-                }) {
-                    Text("Post a Photo")
-                        .foregroundColor(.white)
-                        .frame(minWidth: 0, maxWidth: .infinity)
-                        .padding()
-                        .background(Color.blue)
-                        .cornerRadius(10)
-                }
-                .padding()
-                .background(Color.black) // Set the button background to black
-
-                // List of posts
-                List(posts) { post in
-                    PostView(post: post)
-                        .listRowBackground(Color.black) // Set the list row background to black
-                }
-                .onAppear {
-                    fetchPosts()
-                }
-                .background(Color.black) // Set the List's background to black
             }
-            .background(Color.black.edgesIgnoringSafeArea(.all)) // Set the background color for the entire VStack to black
-            .sheet(isPresented: $showingImagePicker) {
-                ImagePicker(selectedImage: $selectedImage)
+            .padding()
+            .background(Color.black)
+
+            // Post a Photo Button
+            Button(action: {
+                showingUploadPostView = true // Present the UploadPostView
+            }) {
+                Text("Post a Photo")
+                    .foregroundColor(.white)
+                    .frame(minWidth: 0, maxWidth: .infinity)
+                    .padding()
+                    .background(Color.blue)
+                    .cornerRadius(10)
             }
+            .padding()
+            .background(Color.black)
+
+            // List of posts
+            List(posts) { post in
+                PostView(post: post)
+                    .listRowBackground(Color.black)
+            }
+            .onAppear {
+                fetchPosts()
+            }
+            .background(Color.black)
         }
+        .background(Color.black.edgesIgnoringSafeArea(.all))
+        .sheet(isPresented: $showingUploadPostView) {
+            UploadPostView(isPresented: $showingUploadPostView, didCompleteUpload: {
+                self.fetchPosts() // This will refresh the posts list
+            })
+        }
+    }
     
     func fetchPosts() {
         let query = PFQuery(className: "Post")
@@ -134,37 +131,7 @@ struct NewPostView: View {
     }
     
     
-    func uploadPost() {
-        guard let selectedImage = selectedImage else {
-            print("No image selected")
-            return
-        }
-        
-        if let imageData = selectedImage.jpegData(compressionQuality: 0.5) {
-            isUploading = true // Start uploading
-            let file = PFFileObject(name: "image.jpg", data: imageData)
-            let post = PFObject(className: "Post")
-            post["image"] = file
-            post["caption"] = caption
-            post["author"] = PFUser.current()
-            
-            post.saveInBackground { (success, error) in
-                DispatchQueue.main.async {
-                    self.isUploading = false // Stop uploading
-                    if success {
-                        print("Post uploaded successfully")
-                        self.selectedImage = nil
-                        self.caption = ""
-                        self.fetchPosts() // Refresh the feed
-                    } else if let error = error {
-                        print("Error uploading post: \(error.localizedDescription)")
-                    }
-                }
-            }
-        } else {
-            print("Could not get JPEG representation of UIImage")
-        }
-    }
+    
     
     func logout() {
         PFUser.logOutInBackground { (error) in
