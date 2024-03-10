@@ -31,9 +31,6 @@ The following **optional** features are implemented:
 https://jmp.sh/xrRa5FEi
 
 
-## Notes
-
-Describe any challenges encountered while building the app.
 ## License
 
     Copyright [2024] [name of copyright owner]
