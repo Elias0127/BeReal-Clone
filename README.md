@@ -19,19 +19,16 @@ The following **required** functionality is completed:
  
 The following **optional** features are implemented:
 
-- [ ] Users can pull to refresh their feed and see a loading indicator
-- [ ] Users can infinite-scroll in their feed to see past the 10 most recent photos
-- [ ] Users can see location and time of photo upload in the feed	
-- [ ] User stays logged in when app is closed and open again	
+- [x] Users can pull to refresh their feed and see a loading indicator
+- [x] Users can infinite-scroll in their feed to see past the 10 most recent photos
+- [x] Users can see location and time of photo upload in the feed	
+- [x] User stays logged in when app is closed and open again	
 
 
-The following **additional** features are implemented:
-
-- [ ] List anything else that you can get done to improve the app functionality!
 
 ## Video Walkthrough
-![Image Description](https://github-production-user-asset-6210df.s3.amazonaws.com/86494198/311419232-925c3856-be8e-4547-b258-f938214af7cd.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20240309%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240309T080345Z&X-Amz-Expires=300&X-Amz-Signature=f4b647fb299595bb193faeb4407d897b175c35d9aaeef5f01d338e4694c9180f&X-Amz-SignedHeaders=host&actor_id=86494198&key_id=0&repo_id=769470287)
 
+https://jmp.sh/xrRa5FEi
 
 
 ## Notes
@@ -39,7 +36,7 @@ The following **additional** features are implemented:
 Describe any challenges encountered while building the app.
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright [2024] [name of copyright owner]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
