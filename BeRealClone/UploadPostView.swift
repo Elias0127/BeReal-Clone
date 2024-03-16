@@ -8,7 +8,25 @@
 import Foundation
 import SwiftUI
 import Parse
+import CoreLocation
 
+class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
+    private var locationManager = CLLocationManager()
+    @Published var currentLocation: CLLocation?
+
+    override init() {
+        super.init()
+        self.locationManager.delegate = self
+        self.locationManager.requestWhenInUseAuthorization()
+        self.locationManager.startUpdatingLocation()
+    }
+
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.last {
+            self.currentLocation = location
+        }
+    }
+}
 
 struct UploadPostView: View {
     @Binding var isPresented: Bool
@@ -19,7 +37,8 @@ struct UploadPostView: View {
     @State private var isUploading = false
     @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
     @State private var showActionSheet = false
-
+    @StateObject private var locationManager = LocationManager()
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -53,15 +72,15 @@ struct UploadPostView: View {
                         )
                     }
                 }
-
+                
                 TextField("Caption", text: $caption)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding()
-
+                
                 if isUploading {
                     ProgressView("Uploading...")
                 }
-
+                
                 Spacer()
             }
             .padding()
@@ -78,8 +97,6 @@ struct UploadPostView: View {
                     }
                 }
             }
-
-        
             .navigationBarItems(
                 leading: Button("Cancel") {
                     isPresented = false
@@ -95,8 +112,8 @@ struct UploadPostView: View {
     }
     
     
+    
     func uploadPost() {
-        // Ensure an image is selected
         guard let selectedImage = selectedImage else {
             print("No image selected")
             return
@@ -115,6 +132,12 @@ struct UploadPostView: View {
             post["image"] = file
             post["caption"] = caption
             post["author"] = PFUser.current()
+            post["timestamp"] = Date() // Set the timestamp
+            
+            // Set the location if available
+            if let location = locationManager.currentLocation {
+                post["location"] = PFGeoPoint(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+            }
             
             // Save post object in background
             post.saveInBackground { (success, error) in
@@ -146,4 +169,3 @@ struct UploadPostView: View {
         }
     }
 }
-
