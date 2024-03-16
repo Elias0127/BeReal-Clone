@@ -1,10 +1,10 @@
-# Project 2 - *BeReal Clone**
+# Project 2 & 3 - *BeReal Clone**
 
 Submitted by: **Elias Woldie**
 
 **BeReal Clone** is an app that helps users post a photo of what they’re currently doing upon receiving a random notification during the day.
 
-Time spent: **15** hours spent in total
+Time spent: **25** hours spent in total
 
 ## Required Features
 
@@ -16,6 +16,12 @@ The following **required** functionality is completed:
 - [x] App has a feed of posts when user logs in
 - [x] User can upload a new post which takes in a picture from photo library and an optional caption    
 - [x] User is able to logout    
+
+- [x] User can launch camera to take photo instead of photo library
+- [x] Users without iPhones to demo this feature can manually add unique photos to their simulator's Photos app
+- [x] Users can intereact with posts via comments, comments will have user data such as username and name
+- [x] Posts have a time and location attached to them
+- [x] Users are not able to see other photos until they post their own (within 24 hours)
  
 The following **optional** features are implemented:
 
@@ -24,16 +30,18 @@ The following **optional** features are implemented:
 - [x] Users can see location and time of photo upload in the feed    
 - [x] User stays logged in when app is closed and open again    
 
+- [ ] User receive notifcation when it is time to post
+
 
 
 ## Video Walkthrough
 
-https://jmp.sh/xrRa5FEi
+https://jmp.sh/40rmzQVB
 
 
 ## License
 
-    Copyright [2024] [name of copyright owner]
+    Copyright [2024] [Elias Woldie]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
