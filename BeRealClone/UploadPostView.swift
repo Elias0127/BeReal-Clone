@@ -118,23 +118,32 @@ struct UploadPostView: View {
             
             // Save post object in background
             post.saveInBackground { (success, error) in
-            DispatchQueue.main.async {
-                self.isUploading = false
-                if success {
-                    print("Post uploaded successfully")
-                    self.isPresented = false
-                    self.didCompleteUpload() 
-                } else if let error = error {
-                    print("Error uploading post: \(error.localizedDescription)")
+                DispatchQueue.main.async {
+                    self.isUploading = false
+                    if success {
+                        print("Post uploaded successfully")
+                        // Update hasUploadedPost for the current user
+                        if let currentUser = PFUser.current() {
+                            currentUser["hasUploadedPost"] = true
+                            currentUser.saveInBackground { (success, error) in
+                                if success {
+                                    print("User hasUploadedPost updated successfully")
+                                } else if let error = error {
+                                    print("Error updating user hasUploadedPost: \(error.localizedDescription)")
+                                }
+                            }
+                        }
+                        self.isPresented = false
+                        self.didCompleteUpload()
+                    } else if let error = error {
+                        print("Error uploading post: \(error.localizedDescription)")
+                    }
                 }
             }
-        }
         } else {
             isUploading = false
             print("Could not get JPEG representation of UIImage")
         }
-        
-        
     }
 }
 
