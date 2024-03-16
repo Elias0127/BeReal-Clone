@@ -15,6 +15,7 @@ struct SignUpView: View {
     
     var body: some View {
         ZStack {
+            Color.black.edgesIgnoringSafeArea(.all)
             VStack {
                 Text("BeReal.")
                     .font(.largeTitle)

@@ -17,6 +17,8 @@ struct UploadPostView: View {
     @State private var showingImagePicker = false
     @State private var caption: String = ""
     @State private var isUploading = false
+    @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
+    @State private var showActionSheet = false
 
     var body: some View {
         NavigationView {
@@ -27,48 +29,72 @@ struct UploadPostView: View {
                         .scaledToFit()
                 } else {
                     Button("Select Photo") {
-                        showingImagePicker = true
+                        showActionSheet = true
                     }
                     .padding()
                     .background(Color.blue)
                     .foregroundColor(.white)
                     .cornerRadius(10)
+                    .actionSheet(isPresented: $showActionSheet) {
+                        ActionSheet(
+                            title: Text("Select Photo"),
+                            message: nil,
+                            buttons: [
+                                .default(Text("Take Photo")) {
+                                    sourceType = .camera
+                                    showingImagePicker = true
+                                },
+                                .default(Text("Choose Photo")) {
+                                    sourceType = .photoLibrary
+                                    showingImagePicker = true
+                                },
+                                .cancel()
+                            ]
+                        )
+                    }
                 }
-                
+
                 TextField("Caption", text: $caption)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding()
 
                 if isUploading {
                     ProgressView("Uploading...")
-                } else {
-                    Button("Post") {
-                        uploadPost()
-                    }
-                    .padding()
-                    .background(Color.blue)
-                    .foregroundColor(.white)
-                    .cornerRadius(10)
                 }
 
                 Spacer()
             }
             .padding()
-            .navigationBarTitle("Post Photo", displayMode: .inline)
+            .background(Color.black.edgesIgnoringSafeArea(.all))
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    HStack {
+                        Spacer()
+                        Text("Post Photo")
+                            .font(.system(size: 24))
+                            .foregroundColor(.white)
+                        Spacer()
+                    }
+                }
+            }
+
+        
             .navigationBarItems(
                 leading: Button("Cancel") {
                     isPresented = false
                 },
                 trailing: Button("Post") {
                     uploadPost()
-                }.disabled(selectedImage == nil)
+                }.disabled(selectedImage == nil || isUploading)
             )
             .sheet(isPresented: $showingImagePicker) {
-                    ImagePicker(selectedImage: $selectedImage)
-                }
+                ImagePicker(image: $selectedImage, sourceType: sourceType)
+            }
         }
     }
-
+    
+    
     func uploadPost() {
         // Ensure an image is selected
         guard let selectedImage = selectedImage else {

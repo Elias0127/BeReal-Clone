@@ -22,6 +22,7 @@
 /* Begin PBXFileReference section */
 		462C4D2AAE89C29A5A8DEFD0 /* Pods-BeRealClone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeRealClone.release.xcconfig"; path = "Target Support Files/Pods-BeRealClone/Pods-BeRealClone.release.xcconfig"; sourceTree = "<group>"; };
 		6F827A1CFC277C7EBC4EF5B1 /* Pods-BeRealClone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeRealClone.debug.xcconfig"; path = "Target Support Files/Pods-BeRealClone/Pods-BeRealClone.debug.xcconfig"; sourceTree = "<group>"; };
+		8142D40D2BA5190A00AAFD4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		819C55982B9BB97100BD7DA2 /* BeRealClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeRealClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		819C559B2B9BB97100BD7DA2 /* BeRealCloneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeRealCloneApp.swift; sourceTree = "<group>"; };
 		819C559D2B9BB97100BD7DA2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -77,6 +78,7 @@
 		819C559A2B9BB97100BD7DA2 /* BeRealClone */ = {
 			isa = PBXGroup;
 			children = (
+				8142D40D2BA5190A00AAFD4D /* Info.plist */,
 				819C559B2B9BB97100BD7DA2 /* BeRealCloneApp.swift */,
 				819C55A92B9BC34700BD7DA2 /* LoginView.swift */,
 				81BE32B62B9C018E002541C7 /* NewPostView.swift */,
@@ -358,6 +360,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"BeRealClone/Preview Content\"";
@@ -365,6 +368,7 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BeRealClone/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -390,6 +394,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"BeRealClone/Preview Content\"";
@@ -397,6 +402,7 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BeRealClone/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -17,7 +17,7 @@ struct LoginView: View {
 
     var body: some View {
         ZStack {
-            Color.black.edgesIgnoringSafeArea(.all)  // Set the background color to black
+            Color.black.edgesIgnoringSafeArea(.all) 
 
             VStack {
                 Text("BeReal.")

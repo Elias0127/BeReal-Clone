@@ -23,6 +23,7 @@ struct PostView: View {
     var post: Post
     
     var body: some View {
+        
         VStack(alignment: .leading) {
             if let image = post.image {
                 Image(uiImage: image)
@@ -42,11 +43,12 @@ struct PostView: View {
             }
             
             if let timestamp = post.timestamp {
-                Text(timestamp, style: .date) // Format the date as needed
+                Text(timestamp, style: .date)
                     .font(.caption)
                     .foregroundColor(.secondary)
             }
         }
+        .background(Color.black)
         .padding()
 
     }
@@ -74,22 +76,20 @@ struct NewPostView: View {
                 }
             }
             .padding()
-            .background(Color.black)
-            
+
             // Post a Photo Button
             Button(action: {
                 showingUploadPostView = true // Present the UploadPostView
             }) {
                 Text("Post a Photo")
                     .foregroundColor(.white)
-                    .frame(minWidth: 0, maxWidth: .infinity)
+                    .frame(width: 200)
                     .padding()
                     .background(Color.blue)
                     .cornerRadius(10)
             }
             .padding()
-            .background(Color.black)
-            
+
             // List of posts
             List(posts) { post in
                 PostView(post: post)
@@ -101,18 +101,19 @@ struct NewPostView: View {
             .task {
                 fetchPosts()
             }
-            .background(Color.black)
-
-            
-            .background(Color.black.edgesIgnoringSafeArea(.all))
-            .sheet(isPresented: $showingUploadPostView) {
-                UploadPostView(isPresented: $showingUploadPostView, didCompleteUpload: {
-                    self.fetchPosts() // This will refresh the posts list
-                })
-            }
+            .listStyle(PlainListStyle())
         }
-        
+        .background(Color.black.edgesIgnoringSafeArea(.all))
+        .sheet(isPresented: $showingUploadPostView) {
+            UploadPostView(isPresented: $showingUploadPostView, didCompleteUpload: {
+                self.fetchPosts() // This will refresh the posts list
+            })
+        }
     }
+    
+    
+    
+    
     func fetchPosts() {
         let query = PFQuery(className: "Post")
         query.includeKey("author")

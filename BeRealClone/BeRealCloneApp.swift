@@ -20,8 +20,9 @@ struct BeRealCloneApp: App {
     }
 
     var body: some Scene {
-        WindowGroup {
-            ContentView()
-        }
+            WindowGroup {
+                ContentView()
+                    .background(Color.black) // Set background color to black
+            }
     }
 }
